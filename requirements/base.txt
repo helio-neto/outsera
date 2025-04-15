@@ -1,0 +1,8 @@
+# Requirements to install and run the project
+
+# FastAPI
+fastapi[standard]
+# Testing
+pytest
+httpx
+flake8

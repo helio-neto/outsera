@@ -1,0 +1,31 @@
+
+{
+    "max": [
+        {
+            "followingWin": 1999,
+            "interval": 99,
+            "previousWin": 1900,
+            "producer": "Producer 1"
+        },
+        {
+            "followingWin": 2099,
+            "interval": 99,
+            "previousWin": 2000,
+            "producer": "Producer 2"
+        }
+    ],
+    "min": [
+        {
+            "followingWin": 2009,
+            "interval": 1,
+            "previousWin": 2008,
+            "producer": "Producer 1"
+        },
+        {
+            "followingWin": 2019,
+            "interval": 1,
+            "previousWin": 2018,
+            "producer": "Producer 2"
+        }
+    ]
+}
