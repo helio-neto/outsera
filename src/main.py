@@ -24,23 +24,48 @@ memory_connection.cursor().execute(
 
 @app.on_event("startup")
 def on_startup():
+    """
+    FastAPI startup event handler.
+    Loads movie data from CSV into the in-memory SQLite database on application startup.
+    """
     load_csv_data(connection=memory_connection)
 
 
 @app.get("/")
 def read_root():
+    """
+    Root endpoint that returns all movies in the database.
+    
+    Returns:
+        list: A list of all movie records as tuples.
+    """
     movie_data = memory_connection.cursor().execute("SELECT * FROM movies").fetchall()
     return movie_data
 
 
 @app.get("/movie/{movie_id}")
 def read_movie(movie_id: int):
+    """
+    Endpoint to fetch a single movie by its ID.
+    
+    Args:
+        movie_id (int): The ID of the movie to retrieve.
+    
+    Returns:
+        tuple or None: The movie record as a tuple, or None if not found.
+    """
     movie = memory_connection.cursor().execute("SELECT * FROM movies WHERE id = ?", (movie_id,)).fetchone()
     return movie
 
 
 @app.get("/movie/analysis/winners")
 def get_movie_winners():
+    """
+    Endpoint to get analysis of movie winners.
+    
+    Returns:
+        list: A processed list of movie winners, as returned by analysis_movie_winners().
+    """
     raw_winner_list = memory_connection.cursor().execute(
         "SELECT year, producers FROM movies WHERE winner ='yes'"
     ).fetchall()

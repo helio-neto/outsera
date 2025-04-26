@@ -1,3 +1,14 @@
+
+.PHONY: help
+help:
+	@echo "Available commands:"
+	@echo "  install   Install dependencies from project requirements"
+	@echo "  run       Run the application with uvicorn"
+	@echo "  test      Run tests with pytest"
+	@echo "  lint      Lint code"
+	@echo "  clean     Remove __pycache__ and .pytest_cache directories"
+	@echo "  help      Show available commands"
+
 .PHONY: install
 install:
 	@ pip install -r requirements/base.txt

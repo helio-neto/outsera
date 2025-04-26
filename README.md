@@ -15,11 +15,11 @@ This project provides a RESTful API for accessing and analyzing data from the Go
 
 ## Project Structure
 ```
-data/                 # Contains Movielist.csv with movie data
-src/                  # Main FastAPI application
+data/                 # Contains the movie data to load into the database
+src/                  # Main application
 services/             # Business logic and analysis functions
-database/             # Database connection and CSV loading logic
-requirements/         # Python dependency files
+database/             # Database connection and data loading logic
+requirements/         # Python dependency libraries
 tests/                # Integration tests
 logs/                 # Log files
 ```
@@ -48,7 +48,7 @@ logs/                 # Log files
    ```
 
 ## Data Source
-- The movie data is loaded from `data/Movielist.csv` on startup.
+- The movie data is loaded from a `csv` file in the `data` folder on startup.
 
 ## Logging
 - Logs are written to `logs/golden_raspberry_app.log`.
