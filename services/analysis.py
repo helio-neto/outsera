@@ -2,7 +2,7 @@ from typing import List, Tuple, Dict
 from collections import defaultdict
 
 
-def analysis_movie_winners(raw_winner_list: List[Tuple[int, str]]) -> Dict[str, list]:
+def analyze_movie_winners(raw_winner_list: List[Tuple[int, str]]) -> Dict[str, list]:
     """
     Given a list of (year, producer) tuples, returns a dict with 'min' and 'max' time
     that a producer has won the Golden Raspberry Awards.
