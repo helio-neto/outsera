@@ -65,7 +65,7 @@ def load_csv_data(
                     "INSERT INTO movies (year, title, studios, producers, winner) VALUES (?, ?, ?, ?, ?)",
                     (movie["year"], movie["title"], movie["studios"], movie["producers"], movie["winner"])
                 )
-            logger.info(f"Loaded Movielist csv file: {csv_file}")
+            logger.info(f"Loaded Movielist CSV file: {csv_file}")
         except Exception as e:
-            logger.error(f"Error loading Movielist csv file: {e}")
+            logger.error(f"Error loading Movielist CSV file: {e}")
             raise Error(e)

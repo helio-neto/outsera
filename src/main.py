@@ -9,7 +9,7 @@ from sqlite3 import connect
 
 from database.sqlite_database import load_csv_data
 
-from services.analysis import analysis_movie_winners
+from services.analysis import analyze_movie_winners
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(filename='logs/golden_raspberry_app.log', level=logging.INFO)
@@ -58,16 +58,16 @@ def get_movie(movie_id: int):
     return movie
 
 
-@app.get("/movie/analysis/winners")
+@app.get("/movie/winners")
 def get_movie_winners():
     """
     Returns analysis of movie winners.
-        
+
     Returns:
         dict: A dictionary containing two lists: 'min' and 'max' time that a producer has won the Golden Raspberry Awards.
     """
     raw_winner_list = memory_connection.cursor().execute(
         "SELECT year, producers FROM movies WHERE winner ='yes'"
     ).fetchall()
-    winner_list = analysis_movie_winners(raw_winner_list)
+    winner_list = analyze_movie_winners(raw_winner_list)
     return winner_list

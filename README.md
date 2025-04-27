@@ -11,7 +11,15 @@ This project provides a RESTful API for accessing and analyzing data from the Go
 - **Python**
 - **FastAPI** for building the REST API
 - **SQLite** (in-memory) for data storage
-- **CSV** file import for initial data
+- **CSV** file import for initial data## Specifications
+
+The `specs/` directory contains additional resources for understanding and integrating with the Golden Raspberry Awards API:
+
+- **Especificação Backend.pdf**:  
+  This document provides a detailed backend specification, including requirements, data models, and API contract details.
+
+- **example.json**:  
+  An example JSON file illustrating the expected data format for requests or responses.
 
 ## Project Structure
 ```
@@ -39,12 +47,37 @@ logs/                 # Log files
 3. **Endpoints**:
    - `GET /movies` — List all movies
    - `GET /movies/{movie_id}` — Get details for a specific movie
-   - `GET /movie/analysis/winners` — Get producers with min/max win intervals
+   - `GET /movie/winners` — Get producers with min/max win intervals
 
 4. **Testing**:
    Run integration tests with:
    ```bash
    pytest tests/
+   ```
+
+## Alternate Setup & Usage (with Make)
+
+You can use the provided `Makefile` to simplify common tasks:
+
+1. **Install dependencies**:
+   ```bash
+   make install
+   ```
+
+2. **Run the API**:
+   ```bash
+   make run
+   ```
+   The API will be available at `http://127.0.0.1:8000/`.
+
+3. **Run tests**:
+   ```bash
+   make test
+   ```
+
+4. **To see available commands**:
+   ```bash
+   make help
    ```
 
 ## Data Source
