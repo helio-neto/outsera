@@ -31,10 +31,10 @@ def on_startup():
     load_csv_data(connection=memory_connection)
 
 
-@app.get("/")
-def read_root():
+@app.get("/movies")
+def get_all_movies():
     """
-    Root endpoint that returns all movies in the database.
+    Returns all movies in the database.
     
     Returns:
         list: A list of all movie records as tuples.
@@ -43,10 +43,10 @@ def read_root():
     return movie_data
 
 
-@app.get("/movie/{movie_id}")
-def read_movie(movie_id: int):
+@app.get("/movies/{movie_id}")
+def get_movie(movie_id: int):
     """
-    Endpoint to fetch a single movie by its ID.
+    Returns a single movie by its ID.
     
     Args:
         movie_id (int): The ID of the movie to retrieve.
@@ -61,10 +61,10 @@ def read_movie(movie_id: int):
 @app.get("/movie/analysis/winners")
 def get_movie_winners():
     """
-    Endpoint to get analysis of movie winners.
-    
+    Returns analysis of movie winners.
+        
     Returns:
-        list: A processed list of movie winners, as returned by analysis_movie_winners().
+        dict: A dictionary containing two lists: 'min' and 'max' time that a producer has won the Golden Raspberry Awards.
     """
     raw_winner_list = memory_connection.cursor().execute(
         "SELECT year, producers FROM movies WHERE winner ='yes'"

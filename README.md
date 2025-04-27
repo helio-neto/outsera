@@ -37,8 +37,8 @@ logs/                 # Log files
    The API will be available at `http://127.0.0.1:8000/`.
 
 3. **Endpoints**:
-   - `GET /` — List all movies
-   - `GET /movie/{movie_id}` — Get details for a specific movie
+   - `GET /movies` — List all movies
+   - `GET /movies/{movie_id}` — Get details for a specific movie
    - `GET /movie/analysis/winners` — Get producers with min/max win intervals
 
 4. **Testing**:
@@ -52,3 +52,13 @@ logs/                 # Log files
 
 ## Logging
 - Logs are written to `logs/golden_raspberry_app.log`.
+
+## API Documentation
+
+- **Swagger UI:**  
+  Interactive API documentation is available at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) when the server is running.
+
+- **ReDoc:**  
+  Alternative documentation is available at [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc).
+
+Both interfaces allow you to explore and test API endpoints directly from your browser.
