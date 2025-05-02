@@ -58,10 +58,10 @@ def get_movie(movie_id: int):
     return movie
 
 
-@app.get("/movie/winners")
-def get_movie_winners():
+@app.get("/producers/winners")
+def get_producer_winners():
     """
-    Returns analysis of movie winners.
+    Returns analysis of producers with the minimum and maximum intervals between wins.
 
     Returns:
         dict: A dictionary containing two lists: 'min' and 'max' time that a producer has won the Golden Raspberry Awards.
