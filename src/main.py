@@ -7,8 +7,7 @@ from fastapi import FastAPI
 
 from sqlite3 import connect
 
-from database.sqlite_database import load_csv_data
-
+from database.sqlite_database import DatabaseConnectionFactory
 from services.analysis import analyze_movie_winners
 
 logger = logging.getLogger(__name__)
@@ -28,7 +27,7 @@ def on_startup():
     FastAPI startup event handler.
     Loads movie data from CSV into the in-memory SQLite database on application startup.
     """
-    load_csv_data(connection=memory_connection)
+    DatabaseConnectionFactory.load_csv_data(connection=memory_connection)
 
 
 @app.get("/movies")
